@@ -1,0 +1,210 @@
+﻿ul li
+{
+    list-style-type: none;
+}
+.divPager
+{
+    text-align:center;
+}
+
+.appmsg {
+    background-color: #FFFFFF;
+    border: 1px solid #E7E7EB;
+    color: #666666;
+    margin-bottom: 20px;
+    margin-left:5px;    
+    margin-right:5px;     
+    overflow: hidden;
+    position: relative;
+}
+
+.multi .appmsg_content {
+    padding: 0;
+}
+.appmsg_content {
+    padding: 0 14px;
+    position: relative;
+}
+
+.appmsg_item:after {
+    clear: both;
+    content: "​";
+    display: block;
+    height: 0;
+}
+.appmsg_item 
+{
+    width:297px;
+    border-top: 1px solid #E7E7EB;
+    padding: 6px 4px;
+    position: relative;
+}
+
+.appmsg_item .appmsg_thumb {
+    float: right;
+    height: 78px;
+    margin-left: 14px;
+    width: 78px;
+}
+
+.appmsg_thumb {
+    width: 100%;
+}
+
+
+.multi .appmsg_title {
+    font-size: 14px;
+    padding-top: 0;
+}
+.appmsg_item .appmsg_title {
+    line-height: 24px;
+    margin-top: 14px;
+    max-height: 48px;
+    overflow: hidden;
+}
+.appmsg_title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    max-height: 56px;
+    overflow: hidden;
+    padding-top: 10px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+
+.appmsg_title a {
+    color: #666666;
+    display: block;
+}
+a {
+    color: #459AE9;
+    text-decoration: none;
+}
+input, textarea, button, a {
+    outline: 0 none;
+}
+
+
+.appmsg_opr {
+    background-color: #F4F4F4;
+    border-top: 1px solid #E7E7EB;
+}
+.appmsg_opr ul {
+    overflow: hidden;
+}
+.appmsg_opr_item {
+    float: left;
+    height: 44px;
+    line-height: 44px;
+    width: 50%;
+}
+.grid_item.no_extra {
+    float: none;
+    overflow: hidden;
+    width: auto;
+}
+
+.appmsg_opr2 {
+    background-color: #F4F4F4;
+    border-top: 1px solid #E7E7EB;
+}
+.appmsg_opr2_item {
+    float: left;
+    height: 15px;
+    line-height: 15px;
+    width: 50%;
+}
+.no_extra2 {
+    float: none;
+    overflow: hidden;
+    width: auto;
+}
+
+.inner {
+    background-color: #F4F5F9;
+    border: 1px solid #E7E7EB;
+    min-height: 350px;
+    padding: 20px;
+    margin-left:20px;
+}
+
+
+.appmsg_add {
+    margin: 20px 14px;
+}
+.create_access_primary {
+    border: 2px dotted #D9DADC;
+    display: block;
+    font-size: 0;
+    line-height: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+a {
+    color: #459AE9;
+    text-decoration: none;
+}
+
+.multi .appmsg_info {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 14px;
+}
+.appmsg_info {
+    font-size: 13px;
+    line-height: 20px;
+    padding-bottom: 10px;
+}
+
+.appmsg_date {
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+
+.tab {
+    border-bottom: 1px solid #E4E4E4;
+    /**border: 1px solid #E7E7EB;**/
+    height: 25px;
+    /**margin: 5px auto;**/
+    text-align:center;   
+    /**width: 600px;**/
+}
+
+.hyxxs {
+    float: left;
+    height: 25px;
+    letter-spacing: 1px;
+    margin-right: 10px;
+    width: 85px;
+}
+
+.tab a {
+    color: #333333;
+}
+
+
+.wdxxs {
+    border-bottom: 2px solid #229BD7;
+    float: left;
+    height: 24px;
+    letter-spacing: 1px;
+    margin-right: 10px;
+    width: 85px;
+}
+
+.edit_area 
+{
+    background-color: #FFFFFF;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 188px;
+    outline: 0 none;
+    padding: 14px 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+}

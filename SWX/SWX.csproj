@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9421BD4F-3A23-4AE2-82F4-4494B0C3E119}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SWX</RootNamespace>
+    <AssemblyName>SWX</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNetPager">
+      <HintPath>..\..\..\..\digitschool\trunk\03_Code\Lib\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json.Net35">
+      <HintPath>..\..\..\..\digitschool\trunk\03_Code\Lib\Newtonsoft.Json.Net35.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebUse, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WebUse.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="caidan.aspx" />
+    <Content Include="CryptUtil\Readme.txt" />
+    <Content Include="CSS\Ctrl.css" />
+    <Content Include="CSS\Effect.css" />
+    <Content Include="CSS\Form.css" />
+    <Content Include="CSS\index.css" />
+    <Content Include="CSS\message.css" />
+    <Content Include="CSS\picture.css" />
+    <Content Include="Index.aspx" />
+    <Content Include="JS\easyui\images\xz.png" />
+    <Content Include="JS\easyui\images\svt.jpg" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_flat_100_F8F8F8_40x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_flat_100_FFFFFF_40x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_glass_100_EEEEEE_1x400.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_glass_100_ffef8f_1x400.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_highlight-hard_100_E0E2E9_1x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_033D61_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_2E2E2E_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_828282_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="JS\jqGrid\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="JS\jqGrid\css\jquery-ui-1.9.2.custom.css" />
+    <Content Include="JS\SimpoWindow.js" />
+    <Content Include="NewGroupPicture.aspx" />
+    <Content Include="JS\easyui\easyui.css" />
+    <Content Include="JS\easyui\images\accordion_arrows.png" />
+    <Content Include="JS\easyui\images\blank.gif" />
+    <Content Include="JS\easyui\images\calendar_arrows.png" />
+    <Content Include="JS\easyui\images\combo_arrow.png" />
+    <Content Include="JS\easyui\images\datagrid_icons.png" />
+    <Content Include="JS\easyui\images\datebox_arrow.png" />
+    <Content Include="JS\easyui\images\layout_arrows.png" />
+    <Content Include="JS\easyui\images\linkbutton_bg.png" />
+    <Content Include="JS\easyui\images\loading.gif" />
+    <Content Include="JS\easyui\images\menu_arrows.png" />
+    <Content Include="JS\easyui\images\messager_icons.png" />
+    <Content Include="JS\easyui\images\pagination_icons.png" />
+    <Content Include="JS\easyui\images\panel_tools.png" />
+    <Content Include="JS\easyui\images\searchbox_button.png" />
+    <Content Include="JS\easyui\images\slider_handle.png" />
+    <Content Include="JS\easyui\images\spinner_arrows.png" />
+    <Content Include="JS\easyui\images\tabs_icons.png" />
+    <Content Include="JS\easyui\images\tree_icons.png" />
+    <Content Include="JS\easyui\images\validatebox_warning.png" />
+    <Content Include="JS\easyui\jquery.easyui.min.js" />
+    <Content Include="JS\jqGrid\css\ui.jqgrid.css" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-ar.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-bg.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-bg1251.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-cat.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-cn.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-cs.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-da.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-de.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-dk.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-el.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-en.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-es.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-fa.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-fi.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-fr.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-gl.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-he.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-hr.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-hr1250.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-hu.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-id.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-is.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-it.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-ja.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-kr.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-lt.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-mne.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-nl.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-no.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-pl.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-pt-br.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-pt.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-ro.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-ru.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-sk.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-sr-latin.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-sr.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-sv.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-th.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-tr.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-tw.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-ua.js" />
+    <Content Include="JS\jqGrid\js\i18n\grid.locale-vi.js" />
+    <Content Include="JS\jqGrid\js\jquery.jqGrid.min.js" />
+    <Content Include="JS\jqGrid\plugins\grid.addons.js" />
+    <Content Include="JS\jqGrid\plugins\grid.postext.js" />
+    <Content Include="JS\jqGrid\plugins\grid.setcolumns.js" />
+    <Content Include="JS\jqGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="JS\jqGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="JS\jqGrid\plugins\jquery.tablednd.js" />
+    <Content Include="JS\jqGrid\plugins\searchFilter.css" />
+    <Content Include="JS\jqGrid\plugins\ui.multiselect.css" />
+    <Content Include="JS\jqGrid\plugins\ui.multiselect.js" />
+    <Content Include="JS\jquery.min.js" />
+    <Content Include="JS\json2.js" />
+    <Content Include="JS\uploadify\cancel.png" />
+    <Content Include="JS\uploadify\expressInstall.swf" />
+    <Content Include="JS\uploadify\jquery.uploadify.v2.1.0.js" />
+    <Content Include="JS\uploadify\jquery.uploadify.v2.1.0.min.js" />
+    <Content Include="JS\uploadify\swfobject.js" />
+    <Content Include="JS\uploadify\upload.png" />
+    <Content Include="JS\uploadify\uploadify-cancel.png" />
+    <Content Include="JS\uploadify\uploadify.allglyphs.swf" />
+    <Content Include="JS\uploadify\uploadify.css" />
+    <Content Include="JS\uploadify\uploadify.swf" />
+    <Content Include="Login.aspx" />
+    <Content Include="LoginPage.aspx" />
+    <Content Include="MenuMessage.aspx" />
+    <Content Include="ModifyPassword.aspx" />
+    <Content Include="ModifyWXMessage.aspx" />
+    <Content Include="NewGroupNews.aspx" />
+    <Content Include="NewGroupPicture2.aspx" />
+    <Content Include="NewTextMessage.aspx" />
+    <Content Include="PreviewMenuMsg.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="test.aspx" />
+    <Content Include="test2.aspx" />
+    <Content Include="TextMessageList.aspx" />
+    <Content Include="TextMessageList2.aspx" />
+    <Content Include="UserManager.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="caidan.aspx.cs">
+      <DependentUpon>caidan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="caidan.aspx.designer.cs">
+      <DependentUpon>caidan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ConfigDal.cs" />
+    <Compile Include="DAL\ImgItemDal.cs" />
+    <Compile Include="DAL\MenuDal.cs" />
+    <Compile Include="DAL\MenuMessageDal.cs" />
+    <Compile Include="DAL\MenuMsgDal.cs" />
+    <Compile Include="DAL\RegisterDal.cs" />
+    <Compile Include="DAL\UserDal.cs" />
+    <Compile Include="DBUtil\IsEntityAttribute.cs" />
+    <Compile Include="DBUtil\IsIdAttribute.cs" />
+    <Compile Include="DBUtil\MSSQLHelper.cs" />
+    <Compile Include="DBUtil\NotSaveAttribute.cs" />
+    <Compile Include="DBUtil\PageViewModel.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="NewGroupPicture.aspx.cs">
+      <DependentUpon>NewGroupPicture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewGroupPicture.aspx.designer.cs">
+      <DependentUpon>NewGroupPicture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuMessage.aspx.cs">
+      <DependentUpon>MenuMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuMessage.aspx.designer.cs">
+      <DependentUpon>MenuMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="ModifyPassword.aspx.cs">
+      <DependentUpon>ModifyPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyPassword.aspx.designer.cs">
+      <DependentUpon>ModifyPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyWXMessage.aspx.cs">
+      <DependentUpon>ModifyWXMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyWXMessage.aspx.designer.cs">
+      <DependentUpon>ModifyWXMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewGroupNews.aspx.cs">
+      <DependentUpon>NewGroupNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewGroupNews.aspx.designer.cs">
+      <DependentUpon>NewGroupNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewGroupPicture2.aspx.cs">
+      <DependentUpon>NewGroupPicture2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewGroupPicture2.aspx.designer.cs">
+      <DependentUpon>NewGroupPicture2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewTextMessage.aspx.cs">
+      <DependentUpon>NewTextMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewTextMessage.aspx.designer.cs">
+      <DependentUpon>NewTextMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreviewMenuMsg.aspx.cs">
+      <DependentUpon>PreviewMenuMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreviewMenuMsg.aspx.designer.cs">
+      <DependentUpon>PreviewMenuMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CryptUtil\Sample.cs" />
+    <Compile Include="CryptUtil\Cryptography.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test2.aspx.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test2.aspx.designer.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextMessageList.aspx.cs">
+      <DependentUpon>TextMessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextMessageList.aspx.designer.cs">
+      <DependentUpon>TextMessageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TextMessageList2.aspx.cs">
+      <DependentUpon>TextMessageList2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextMessageList2.aspx.designer.cs">
+      <DependentUpon>TextMessageList2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadHandler.ashx.cs">
+      <DependentUpon>UploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager.aspx.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManager.aspx.designer.cs">
+      <DependentUpon>UserManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\AdminUtil.cs" />
+    <Compile Include="Utils\FileLogger.cs" />
+    <Compile Include="CryptUtil\WXBizMsgCrypt.cs" />
+    <Compile Include="Utils\HttpRequestUtil.cs" />
+    <Compile Include="Utils\Tools.cs" />
+    <Compile Include="Utils\WeatherUtil.cs" />
+    <Compile Include="Utils\WXApi.cs" />
+    <Compile Include="Utils\WXMsgUtil.cs" />
+    <Compile Include="WeChat.ashx.cs">
+      <DependentUpon>WeChat.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WeixinInterface.ashx.cs">
+      <DependentUpon>WeixinInterface.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WeixinInterface.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UploadHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JS\uploadify\check.php" />
+    <None Include="JS\uploadify\uploadify.fla" />
+    <None Include="JS\uploadify\uploadify.php" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+    <Content Include="WeChat.ashx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2454</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

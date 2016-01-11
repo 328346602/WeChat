@@ -1,0 +1,71 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*==========此样式表为CSS3特效样式==========*/
+/* CSS3圆角 */
+.Nav_Navigation, li.Letf_Hot_More a, .Leave_Avatar, .Leave_Reply_Button, .Right_Evaluate_button, .Curriculum_List table tr th a, .Student_List table tr td a.Public_Button, .Add_Activity, .Activity_Select ul.Activity_Select_Type li, .Activity_Select_List a.Activity_Select_Botton, .Activity_Step_Botton a, .Activity_Select_Index_Con dl dd a.Activity_Select_Random, .Index_Score_Button, .Comments_Button, .Right_Box_Leave .Leave_More, .Leave_Editor_Button
+{
+-moz-border-radius:5px; 
+-khtml-border-radius:5px; 
+-webkit-border-radius:5px; 
+border-radius:5px;
+/* behavior:url(ie-css3.htc); 通知IE浏览器调用脚本作用于'box'类 */
+}
+
+
+/* CSS3线性渐变 */
+.Curriculum_List table tr .Curriculum_List_name, .Student_List .Student_List_name, .Teacher_Wait table tr th, .SIMPO_Table tr th
+{
+ background:-moz-linear-gradient(top, #fffffe,#f2f2f2);
+ background:-webkit-gradient(linear, 0 0, 0 100%, from(#fffffe), to(#f2f2f2));
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#fffffe,endColorstr=#f2f2f2,grandientType=1);
+ }
+
+
+/*
+解决各个浏览器的BOX投影问题
+box-shadow: hoff voff bd sd color inset;
+hoff 指示水平偏移
+voff 指示垂直偏移
+bd 指示模糊距离
+sd 指示扩散距离
+color 指示阴影的颜色
+inset 是一个关键字，在使用时指示阴影是内部阴影，而不是外部阴影
+*/
+.Right_Evaluate, .Pop_M_SIMPO, .Activity_Select_Index_Con table tr td .Activity_Name, .Activity_Select_Index_Con table tr td .Activity_Time, .Activity_Complete{
+    position:relative;
+	z-index:1;
+    -moz-box-shadow: 2px 2px 5px #cfcfcf ;
+    -webkit-box-shadow:2px 2px 5px #cfcfcf ;
+	box-shadow: 2px 2px 5px #cfcfcf ;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#cfcfcf')     progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#cfcfcf') progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#cfcfcf') progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#cfcfcf');/*解决IE投影是黑色的问题*/
+}
+.Index_Score, .Comments_textarea
+{
+    position:relative;
+	z-index:1;
+    -moz-box-shadow: 2px 2px 5px #cfcfcf inset;
+    -webkit-box-shadow:2px 2px 5px #cfcfcf inset;
+	box-shadow: 2px 2px 5px #cfcfcf inset;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#cfcfcf' )     progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#cfcfcf') progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#cfcfcf') progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#cfcfcf');/*解决IE投影是黑色的问题*/
+}
+
+/*共用特效类文本*/
+.SIMPO_Text, .SIMPO_Txt_50,.SIMPO_Txt_60, .SIMPO_Txt_80, .SIMPO_Txt_100, .SIMPO_Txt_150, .SIMPO_Txt_200, .SIMPO_Txt_250, .SIMPO_Txt_300, .SIMPO_Txt_lang, .SIMPO_Select
+{
+    position:relative;
+	z-index:1;
+    -moz-box-shadow: 2px 2px 5px #cfcfcf inset;
+    -webkit-box-shadow:2px 2px 5px #cfcfcf inset;
+	box-shadow: 2px 2px 5px #cfcfcf inset;
+
+}
+
+/*共用特效类按钮*/
+.SIMPO_Submit, .SIMPO_Text_Blue, .SIMPO_Text_Green, .SIMPO_Text_Red2, .SIMPO_Text_Gray
+{
+-moz-border-radius:3px; 
+-khtml-border-radius:3px; 
+-webkit-border-radius:3px; 
+border-radius:3px;
+behavior:url(ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类 */
+}

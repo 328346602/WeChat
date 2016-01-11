@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+/* 控件样式格式化 */
+input{vertical-align:middle;}
+.SIMPO_Select
+{
+    display: inline-block;
+    background-color: #FFFFFF;
+    border: 1px solid #8e8e8e;
+    vertical-align:middle;
+	height:24px;
+	line-height:24px;
+}
+.clear{ display:block; clear:both; height:0px; width:100%; font-size:0; line-height:0px; visibility:hidden; overflow:hidden;}
+/*共用翻页*/
+.Public_Page{height:25px; margin:0 auto; color:#808080; margin:0; padding:0; zoom:1; font-size:12px; vertical-align:middle; margin-top:2px;}
+.Public_Page:after {clear:both; content:" "; display:block; font-size:0; height:0; visibility:hidden;}
+.Public_Page a, .Public_Page span.Public_Page_prev, .Public_Page span.Public_Page_next{text-decoration:none; color:#808080;  margin:0 3px; display:inline-block; *display:inline; *zoom:1;
+vertical-align:middle; height:22px; line-height:22px;}
+.Public_Page_prev, .Public_Page_next{ background-color: #F9F9F9; padding:0 8px; border: 1px solid #ccc;}
+.Public_Page_prev:hover, .Public_Page_next:hover, .ui-paging-goto:hover { border-color:#999; color:#666;}
+.Public_Page_prev:hover .iconfont, .Public_Page_next:hover .iconfont { color: #666;}
+.Public_Page .Public_Page_prev {margin: 0 3px 0 0;}
+.Public_Page .iconfont {font-size: 10px; color: #787878;}
+.Public_Page a.Public_Page_item {background-color:#f3f3f3; font-weight:bold; padding:0 8px; border:none; }
+.Public_Page a.Public_Page_current, .Public_Page a.Public_Page_item:hover {color:#fff; background:#f26c4f;}
+a.Public_Page_prev:hover, a.Public_Page_next:hover{text-decoration:none; color:#666;}
+.ui-paging-info { line-height:24px; margin-right:5px; height:24px;}
+.ui-paging-ellipsis { margin:0 5px; line-height: 16px;font-weight:bold;}
+.Public_Page span.Public_Page_prev,
+.Public_Page span.Public_Page_next,
+.Public_Page span.Public_Page_prev .iconfont,
+.Public_Page span.Public_Page_next .iconfont {color:#fff; box-shadow:none; background: #d4d4d4; border-color: #d4d4d4; filter: none;}
+/*共用类的调用*/
+.SIMPO_Text{display:inline; padding:4px 4px; background:#ffffff; border:1px solid #CCCCCC; position:relative;	z-index:1;}
+.SIMPO_Submit{display:inline; border:none; padding:4px 10px; background:#26709a; position:relative; z-index:1; color:#FFFFFF;  cursor:pointer;}/*网站默认蓝色*/
+/*大按钮蓝色*/
+.SIMPO_Text_Blue, .SIMPO_Text_Green,.SIMPO_Text_Red2, .SIMPO_Text_Gray{display:inline; border:none; padding: 4px 15px; text-align:center; color:#FFFFFF; position:relative; z-index:1; font-size:14xp; cursor:pointer}
+.SIMPO_Text_Blue:hover, .SIMPO_Text_Green:hover,.SIMPO_Text_Red2:hover, .SIMPO_Text_Gray:hover{ color:#ffffff;font-weight:bold;}
+.SIMPO_Text_Blue{ background:#006ba1; border:1px solid #006ba1; font-size:14xp;}
+.SIMPO_Text_Green{ background:#4bb402; border:1px solid #379000; font-size:14xp;}
+.SIMPO_Text_Red2{ background:#f26c4f; border:1px solid #f26c4f; font-size:14xp;}
+.SIMPO_Text_Gray{ background:#CACACA; border:1px solid #8e8e8e; color:#333333; font-size:14xp;}
+.SIMPO_Text_Gray:hover{ color:#fff}
+.SIMPO_Txt_50, .SIMPO_Txt_60,.SIMPO_Txt_80, .SIMPO_Txt_100, .SIMPO_Txt_150, .SIMPO_Txt_200, .SIMPO_Txt_250, .SIMPO_Txt_300, .SIMPO_Txt_lang{ display:inline-block; height:24px; line-height:24px; width:46px; background-color:#FFFFFF; border:1px solid #8e8e8e;vertical-align:middle;}
+.SIMPO_Txt_60{ width:65px;}
+.SIMPO_Txt_80{ width:80px;}
+.SIMPO_Txt_100{ width:100px;}
+.SIMPO_Txt_150{ width:150px;}
+.SIMPO_Txt_200{ width:200px;}
+.SIMPO_Txt_250{ width:250px;}
+.SIMPO_Txt_300{ width:300px;}
+.SIMPO_Txt_lang{ width:95%}
+
+/* 表格*/
+.SIMPO_Table{ width:100%;overflow-x: auto;}
+.SIMPO_Table table{border:0px solid #d3d3d3; width:100%;background:#d3d3d3;}
+.SIMPO_Table table .adminBar td{padding:0px 0px 0px 5px; border-bottom:0; background:#eaf3ff;  height:26px; }
+.SIMPO_Table table .tableHeader th{margin-bottom:10px;   height:26px;}
+.SIMPO_Table table tr{ height:30px; width:628px; background:#fff;}
+.SIMPO_Table table tr td{ line-height:30px; /*border-bottom:1px dashed #CCCCCC;*/ padding:0 4px}
+.SIMPO_Table table tr th ul{ display:block; float:left; height:35px; padding-left:20px; position:relative; top:8px;}
+.SIMPO_Table table tr th ul li{display:block; width:65px; float:left; height:28px; border-bottom:none;  cursor:pointer;}
+.SIMPO_Table table tr th ul li.Student_List_Select{ border:1px solid #26709a; border-bottom:none;}
+.SIMPO_Table table tr th{height:35px; border-bottom:2px solid #26709a; text-align:center; white-space:nowrap;}
+.SIMPO_Table table tr th b{float:none;}
+.SIMPO_Table table tr td{color:#666666}
+.SIMPO_Table table tr td .ico{width:19px; height:19px; display:inline; padding:0 10px; position:relative; top:2px;}
+.SIMPO_Table table tr td a.Public_Button{display:block; height:20px; line-height:20px; display:block; padding:0 5px; border:1px solid #CCCCCC; float:left; margin-left:15px;}
+.SIMPO_Table tr th b{font-size:14px; padding-left:10px; float:left}
+.SIMPO_Table table tr td a.SIMPO_Table_Name{font-size:12px; font-weight:lighter; color:#26709a; padding-left:10px;}
+.SIMPO_Table td{ white-space:nowrap;}
+
+/*TAB*/
+.SIMPO_Tab{ display:block; width:100%; height:28px; border-bottom:1px solid #ccc; background-color:#FFFFFF;}
+.SIMPO_Tab ul li{ padding-left:3px;padding-right:3px;display:block; height:27px; line-height:27px; border-bottom:none; width:auto; float:left; text-align:center; margin-right:5px; position:relative; top:1px; background-color:#E2E1E1; border-left: 1px solid #ccc;border-right: 1px solid #ccc;border-top: 1px solid #ccc;cursor:pointer;}
+.SIMPO_Tab ul li.SIMPO_Tab_Select{ top:2px; }
+.SIMPO_Tab ul li a{ font-size:14px; color:#FFFFFF; display:block; width:88px; height:27px;}
+.SIMPO_Tab ul li.SIMPO_Tab_Select a{ font-weight:bold;}
+.SIMPO_Tab ul li{background-color:#E2E1E1;}
+.SIMPO_Tab ul li.SIMPO_Tab_Select{background-color:#FFFFFF}
+.SIMPO_Tab ul li.SIMPO_Tab_Select a{color:#333333;}
+.SIMPO_Tab_Content{border-left: 1px solid #ccc;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+/*Select*/
+
+.SIMPO_Select {display: inline-block;*display: inline; *zoom: 1;}
+.SIMPO_Select a {color: #7d7d7d; font-size: 12px;  text-decoration: none;}
+.SIMPO_Select a:hover { text-decoration: none;}
+a.SIMPO_Select_Trigger { position: relative; display: inline-block; *display: inline; *zoom: 1; width: 99%; border: 1px solid #ccc; height: 30px; line-height: 30px; text-indent: 10px;
+ background: -webkit-linear-gradient(top, #fbfbfb, #f3f3f3); background: -moz-linear-gradient(top, #fbfbfb, #f3f3f3); filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#fbfbfb, endColorstr=#f3f3f3);
+}
+a.SIMPO_Select_Trigger i { position: absolute; top: 0px; right: 10px; line-height: 28px; text-indent: 0; font-size: 14px; cursor: pointer;}
+a.SIMPO_Select_Trigger:hover { border: 1px solid #999;}
+.SIMPO_Select_content { width: 98%; margin: -1px 0 0; padding: 0; background: #fff; list-style: none; border: 1px solid #ccc;
+}
+.SIMPO_Select_item a { display: block; padding: 7px 0; text-indent: 10px;}
+.SIMPO_Select_item a:hover { background: #f2f2f2;}
+.SIMPO_Select_item-hover a { background: #f2f2f2;}

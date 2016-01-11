@@ -1,0 +1,13 @@
+﻿.tabFrm
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabFrm td
+{
+    padding: 5px;
+}
+.tdTitle
+{
+    text-align: right;
+}

@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2014-11-13T10:19:09.6593580+08:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+    <_PublishTargetUrl>D:\CSharp\Test</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AspNetPager.dll">
+      <publishTime>10/31/2014 15:15:07</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.Net35.dll">
+      <publishTime>10/30/2014 16:20:58</publishTime>
+    </File>
+    <File Include="bin/SWX.dll">
+      <publishTime>01/10/2016 23:04:50</publishTime>
+    </File>
+    <File Include="bin/WebUse.dll">
+      <publishTime>02/06/2012 14:19:05</publishTime>
+    </File>
+    <File Include="caidan.aspx">
+      <publishTime>11/11/2014 13:57:37</publishTime>
+    </File>
+    <File Include="CryptUtil/Readme.txt">
+      <publishTime>10/30/2014 11:21:41</publishTime>
+    </File>
+    <File Include="CSS/Ctrl.css">
+      <publishTime>11/04/2014 09:05:56</publishTime>
+    </File>
+    <File Include="CSS/Effect.css">
+      <publishTime>11/04/2014 09:05:56</publishTime>
+    </File>
+    <File Include="CSS/Form.css">
+      <publishTime>11/05/2014 09:53:08</publishTime>
+    </File>
+    <File Include="CSS/index.css">
+      <publishTime>11/04/2014 09:34:19</publishTime>
+    </File>
+    <File Include="CSS/message.css">
+      <publishTime>11/10/2014 13:21:35</publishTime>
+    </File>
+    <File Include="CSS/picture.css">
+      <publishTime>11/11/2014 14:47:21</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>01/10/2016 16:22:49</publishTime>
+    </File>
+    <File Include="JS/easyui/easyui.css">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/accordion_arrows.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/blank.gif">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/calendar_arrows.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/combo_arrow.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/datagrid_icons.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/datebox_arrow.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/layout_arrows.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/linkbutton_bg.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/loading.gif">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/menu_arrows.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/messager_icons.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/pagination_icons.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/panel_tools.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/searchbox_button.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/slider_handle.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/spinner_arrows.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/svt.jpg">
+      <publishTime>11/06/2014 11:18:33</publishTime>
+    </File>
+    <File Include="JS/easyui/images/tabs_icons.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/tree_icons.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/validatebox_warning.png">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/easyui/images/xz.png">
+      <publishTime>11/06/2014 11:18:33</publishTime>
+    </File>
+    <File Include="JS/easyui/jquery.easyui.min.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_flat_100_F8F8F8_40x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_flat_100_FFFFFF_40x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_flat_15_cd0a0a_40x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_glass_100_e4f1fb_1x400.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_glass_100_EEEEEE_1x400.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_glass_100_ffef8f_1x400.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_glass_50_3baae3_1x400.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_glass_80_d7ebf9_1x400.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_highlight-hard_100_E0E2E9_1x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_highlight-hard_70_000000_1x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_highlight-soft_100_deedf7_1x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-bg_highlight-soft_25_ffef8f_1x100.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_033D61_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_2694e8_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_2E2E2E_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_3d80b3_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_72a7cf_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_828282_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/images/ui-icons_ffffff_256x240.png">
+      <publishTime>11/10/2014 17:46:08</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/jquery-ui-1.9.2.custom.css">
+      <publishTime>11/10/2014 17:17:24</publishTime>
+    </File>
+    <File Include="JS/jqGrid/css/ui.jqgrid.css">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-ar.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-bg.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-bg1251.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-cat.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-cn.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-cs.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-da.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-de.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-dk.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-el.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-en.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-es.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-fa.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-fi.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-fr.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-gl.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-he.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-hr.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-hr1250.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-hu.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-id.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-is.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-it.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-ja.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-kr.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-lt.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-mne.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-nl.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-no.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-pl.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-pt-br.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-pt.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-ro.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-ru.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-sk.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-sr-latin.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-sr.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-sv.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-th.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-tr.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-tw.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-ua.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/i18n/grid.locale-vi.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/js/jquery.jqGrid.min.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/grid.addons.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/grid.postext.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/grid.setcolumns.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/jquery.contextmenu.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/jquery.searchFilter.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/jquery.tablednd.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/searchFilter.css">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/ui.multiselect.css">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jqGrid/plugins/ui.multiselect.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/jquery.min.js">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+    <File Include="JS/json2.js">
+      <publishTime>11/06/2014 11:13:13</publishTime>
+    </File>
+    <File Include="JS/SimpoWindow.js">
+      <publishTime>11/12/2014 16:18:07</publishTime>
+    </File>
+    <File Include="JS/uploadify/cancel.png">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/expressInstall.swf">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/jquery.uploadify.v2.1.0.js">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/jquery.uploadify.v2.1.0.min.js">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/swfobject.js">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/upload.png">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/uploadify-cancel.png">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/uploadify.allglyphs.swf">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/uploadify.css">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="JS/uploadify/uploadify.swf">
+      <publishTime>10/31/2014 15:15:09</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>11/07/2014 14:56:56</publishTime>
+    </File>
+    <File Include="LoginPage.aspx">
+      <publishTime>11/12/2014 15:35:40</publishTime>
+    </File>
+    <File Include="MenuMessage.aspx">
+      <publishTime>11/12/2014 09:25:12</publishTime>
+    </File>
+    <File Include="ModifyPassword.aspx">
+      <publishTime>11/05/2014 14:34:12</publishTime>
+    </File>
+    <File Include="ModifyWXMessage.aspx">
+      <publishTime>11/07/2014 16:02:25</publishTime>
+    </File>
+    <File Include="NewGroupNews.aspx">
+      <publishTime>11/13/2014 09:41:58</publishTime>
+    </File>
+    <File Include="NewGroupPicture.aspx">
+      <publishTime>11/12/2014 16:21:36</publishTime>
+    </File>
+    <File Include="NewGroupPicture2.aspx">
+      <publishTime>11/10/2014 13:21:35</publishTime>
+    </File>
+    <File Include="NewTextMessage.aspx">
+      <publishTime>11/07/2014 11:14:31</publishTime>
+    </File>
+    <File Include="PreviewMenuMsg.aspx">
+      <publishTime>11/11/2014 11:17:41</publishTime>
+    </File>
+    <File Include="Register.aspx">
+      <publishTime>11/07/2014 16:00:59</publishTime>
+    </File>
+    <File Include="test.aspx">
+      <publishTime>11/03/2014 09:32:04</publishTime>
+    </File>
+    <File Include="test2.aspx">
+      <publishTime>11/03/2014 10:50:02</publishTime>
+    </File>
+    <File Include="TextMessageList.aspx">
+      <publishTime>11/11/2014 14:36:16</publishTime>
+    </File>
+    <File Include="TextMessageList2.aspx">
+      <publishTime>11/07/2014 11:14:31</publishTime>
+    </File>
+    <File Include="UploadHandler.ashx">
+      <publishTime>10/31/2014 15:15:06</publishTime>
+    </File>
+    <File Include="UserManager.aspx">
+      <publishTime>11/07/2014 15:03:10</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/10/2016 12:56:30</publishTime>
+    </File>
+    <File Include="WeChat.ashx">
+      <publishTime>01/10/2016 17:52:25</publishTime>
+    </File>
+    <File Include="WeixinInterface.ashx">
+      <publishTime>10/30/2014 11:21:42</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
