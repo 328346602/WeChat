@@ -253,8 +253,12 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Log.cs" />
+    <Compile Include="Models\AreaID_FModels.cs" />
+    <Compile Include="Models\AreaID_VModels.cs" />
     <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\WeatherCodeModels.cs" />
+    <Compile Include="Models\WindDirectionCodeModels.cs" />
+    <Compile Include="Models\WindForceCodeModels.cs" />
     <Compile Include="NewGroupPicture.aspx.cs">
       <DependentUpon>NewGroupPicture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,6 +385,7 @@
     <Compile Include="Utils\FileLogger.cs" />
     <Compile Include="CryptUtil\WXBizMsgCrypt.cs" />
     <Compile Include="Utils\HttpRequestUtil.cs" />
+    <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="Utils\WeatherUtil.cs" />
     <Compile Include="Utils\WXApi.cs" />

@@ -26,39 +26,39 @@ namespace SWX
         #region ProcessRequest
         public void ProcessRequest(HttpContext context)
         {
-            Log.Write("ProcessRequest start");
+            Log.WriteDebug("ProcessRequest start");
             try
             {
                 Stream stream = context.Request.InputStream;
                 byte[] byteArray = new byte[stream.Length];
                 stream.Read(byteArray, 0, (int)stream.Length);
                 string postXmlStr = System.Text.Encoding.UTF8.GetString(byteArray);
-                Log.Write("1");
+                Log.WriteDebug("1");
                 if (!string.IsNullOrEmpty(postXmlStr))
                 {
-                    Log.Write("IsNullOrEmpty");
+                    Log.WriteDebug("IsNullOrEmpty");
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(postXmlStr);
                     if (string.IsNullOrWhiteSpace(sToken))
                     {
-                        Log.Write("string.IsNullOrWhiteSpace(sToken)");
+                        Log.WriteDebug("string.IsNullOrWhiteSpace(sToken)");
                         DataTable dt = ConfigDal.GetConfig(WXMsgUtil.GetFromXML(doc, "ToUserName"));
                         DataRow dr = dt.Rows[0];
                         sToken = dr["Token"].ToString();
                         sAppID = dr["AppID"].ToString();
                         sEncodingAESKey = dr["EncodingAESKey"].ToString();
-                        Log.Write(sToken + "\r\n" + sAppID + "\r\n" + sEncodingAESKey + "\r\n");
+                        Log.WriteDebug(sToken + "\r\n" + sAppID + "\r\n" + sEncodingAESKey + "\r\n");
                     }
-                    Log.Write("2");
+                    Log.WriteDebug("2");
                     if (!string.IsNullOrWhiteSpace(sAppID))  //没有AppID则不解密(订阅号没有AppID)
                     {
-                        Log.Write("!string.IsNullOrWhiteSpace(sAppID)");
+                        Log.WriteDebug("!string.IsNullOrWhiteSpace(sAppID)");
                         //解密
                         WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(sToken, sEncodingAESKey, sAppID);
                         string signature = context.Request["msg_signature"];
                         string timestamp = context.Request["timestamp"];
                         string nonce = context.Request["nonce"];
-                        Log.Write(signature + "\r\n" + timestamp + "\r\n" + nonce + "\r\n");
+                        Log.WriteDebug(signature + "\r\n" + timestamp + "\r\n" + nonce + "\r\n");
                         string stmp = "";
                         int ret = wxcpt.DecryptMsg(signature, timestamp, nonce, postXmlStr, ref stmp);
                         if (ret == 0)
@@ -68,35 +68,37 @@ namespace SWX
 
                             try
                             {
-                                Log.Write("3");
+                                Log.WriteDebug("3");
                                 responseMsg(context, doc);
                             }
                             catch (Exception ex)
                             {
-                                FileLogger.WriteErrorLog(context, ex.Message);
+                                //FileLogger.WriteErrorLog(context, ex.Message);
+                                Log.WriteError(ex.Message);
                             }
                         }
                         else
                         {
-                            FileLogger.WriteErrorLog(context, "解密失败，错误码：" + ret);
+                            //FileLogger.WriteErrorLog(context, "解密失败，错误码：" + ret);
+                            Log.WriteError("解密失败，错误码：" + ret);
                         }
                     }
                     else
                     {
-                        Log.Write("responseMsg(context, doc);");
+                        Log.WriteDebug("responseMsg(context, doc);");
                         responseMsg(context, doc);
                     }
                 }
                 else
                 {
-                    Log.Write("valid(context);");
+                    Log.WriteError("valid(context);");
                     valid(context);
                 }
             }
             catch (Exception ex)
             {
                 //FileLogger.WriteErrorLog(context, ex.Message);
-                Log.Write("ProcessRequest"+context.ToString()+ex.Message);
+                Log.WriteError("ProcessRequest" + context.ToString() + ex.Message);
             }
         }
         #endregion
@@ -117,17 +119,17 @@ namespace SWX
             try
             {
                 var echostr = context.Request["echoStr"].ToString();
-                Log.Write("var echostr = context.Request[\"echoStr\"].ToString();>>>>>" + echostr);
+                Log.WriteDebug("var echostr = context.Request[\"echoStr\"].ToString();>>>>>" + echostr);
                 if (checkSignature(context) && !string.IsNullOrEmpty(echostr))
                 {
                     context.Response.Write(echostr);
-                    Log.Write("context.Response.Write(echostr);>>>>>" + echostr);
+                    Log.WriteDebug("context.Response.Write(echostr);>>>>>" + echostr);
                     context.Response.Flush();//推送...不然微信平台无法验证token
                 }
             }
             catch(Exception ex)
             {
-                Log.Write("valid() Error>>>>>"+ex.Message);
+                Log.WriteError("valid() Error>>>>>" + ex.Message);
             }
         }
         #endregion
@@ -146,12 +148,12 @@ namespace SWX
             tmpStr = tmpStr.ToLower();
             if (tmpStr == signature)
             {
-                Log.Write("checkSignature>>>>>true");
+                Log.WriteDebug("checkSignature>>>>>true");
                 return true;
             }
             else
             {
-                Log.Write("checkSignature>>>>>false");
+                Log.WriteDebug("checkSignature>>>>>false");
                 return false;
             }
         }
@@ -223,7 +225,8 @@ namespace SWX
                 int ret = wxcpt.EncryptMsg(result, timestamp, nonce, ref sEncryptMsg);
                 if (ret != 0)
                 {
-                    FileLogger.WriteErrorLog(context, "加密失败，错误码：" + ret);
+                    //FileLogger.WriteErrorLog(context, "加密失败，错误码：" + ret);
+                    Log.WriteDebug("加密失败，错误码：" + ret);
                     return;
                 }
 

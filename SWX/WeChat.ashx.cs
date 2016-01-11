@@ -11,6 +11,7 @@ using System.Security;
 using System.Net;
 using System.Collections;
 using System.Security.Cryptography;
+using SWX.Utils;
 
 namespace SWX
 {
@@ -28,7 +29,7 @@ namespace SWX
 
         public void ProcessRequest(HttpContext context)
         {
-            Log.Write("ProcessRequest Start");
+            Log.WriteDebug("ProcessRequest Start");
             try
             {
 
@@ -84,7 +85,7 @@ namespace SWX
             }
             catch(Exception ex)
             {
-                Log.Write(ex.Message);
+                Log.WriteDebug(ex.Message);
             }
         }
 
@@ -119,7 +120,7 @@ namespace SWX
 
                 //将运算结果转换成string
                 string hash = BitConverter.ToString(dataHashed).Replace("-", "");
-                Log.Write("hash:" + hash); //记录日志，不需要可以注释掉
+                Log.WriteDebug("hash:" + hash); //记录日志，不需要可以注释掉
 
                 if (hash.ToLower() == signature.ToLower())
                     return true;
@@ -128,7 +129,7 @@ namespace SWX
             }
             catch(Exception ex)
             {
-                Log.Write(ex.Message);
+                Log.WriteDebug(ex.Message);
                 return false;
             }
 

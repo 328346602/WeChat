@@ -65,7 +65,7 @@ namespace SWX.Utils
                     string weatherJson = HttpRequestUtil.RequestUrl("http://www.weather.com.cn/adat/sk/" + cityCode + ".html", "GET");
                     
                     
-                    Log.Write("weatherJson>>>>>" + weatherJson);
+                    Log.WriteDebug("weatherJson>>>>>" + weatherJson);
                     Dictionary<string, string> dict = new Dictionary<string, string>();
                     dict["Title"] = Tools.GetJsonValue(weatherJson, "city") + "天气预报 " + DateTime.Now.ToString("yyyy年M月d日");
                     dict["Description"] = "";
@@ -88,7 +88,7 @@ namespace SWX.Utils
             }
             catch (Exception ex)
             {
-                Log.Write(ex.Message);
+                Log.WriteDebug(ex.Message);
                 return result;
             }
         }
@@ -125,7 +125,7 @@ namespace SWX.Utils
                 }
             }
 
-            Log.Write("zhToUncode>>>>>" + outStr);
+            Log.WriteDebug("zhToUncode>>>>>" + outStr);
             return outStr;
         }
         #endregion
@@ -158,7 +158,7 @@ namespace SWX.Utils
                     outStr = ex.Message;
                 }
             }
-            Log.Write("uncodeToZH>>>>>" + outStr);
+            Log.WriteDebug("uncodeToZH>>>>>" + outStr);
             return outStr;
         }
         #endregion

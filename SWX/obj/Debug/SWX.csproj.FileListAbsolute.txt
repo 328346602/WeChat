@@ -27,3 +27,9 @@ C:\Users\LDM\Documents\GitHub\WeChat\SWX\bin\SWX.pdb
 C:\Users\LDM\Documents\GitHub\WeChat\SWX\obj\Debug\SWX.csprojResolveAssemblyReference.cache
 C:\Users\LDM\Documents\GitHub\WeChat\SWX\obj\Debug\SWX.dll
 C:\Users\LDM\Documents\GitHub\WeChat\SWX\obj\Debug\SWX.pdb
+D:\GitHub\WeChat\SWX\obj\Debug\SWX.csprojResolveAssemblyReference.cache
+D:\GitHub\WeChat\SWX\obj\Debug\SWX.dll
+D:\GitHub\WeChat\SWX\bin\SWX.dll.config
+D:\GitHub\WeChat\SWX\bin\SWX.dll
+D:\GitHub\WeChat\SWX\bin\SWX.pdb
+D:\GitHub\WeChat\SWX\obj\Debug\SWX.pdb
