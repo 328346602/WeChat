@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+//using System.
 
 
 namespace SWX.Utils
@@ -42,18 +43,22 @@ namespace SWX.Utils
         #endregion
 
 
-        #region
+        #region 根据城市名查询天气信息
         public static List<Dictionary<string, string>> GetWeatherInfo(string cityName)
         {
             List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
             try
             {
-
+                /*
                 string unCityName = System.Web.HttpUtility.UrlEncode(cityName);// zhToUncode(cityName);
                 string cityJson = HttpRequestUtil.RequestUrl("http://apistore.baidu.com/microservice/cityinfo?cityname=" + unCityName, "GET");
                 Log.Write("cityJson>>>>>" + cityJson);
                 string cityCode = Tools.GetJsonValue(cityJson, "cityCode");
                 Log.Write("cityCode>>>>>" + cityCode);
+                 * */
+                string cityCode=string.Empty;
+                
+
                 if (cityCode != string.Empty)
                 {
                     //string weatherJson = HttpRequestUtil.RequestUrl("http://www.weather.com.cn/data/sk/" + cityCode + ".html", "GET");

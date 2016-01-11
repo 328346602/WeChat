@@ -21,3 +21,9 @@ D:\CSharp\ASP.NET微信开发源码\SWX\bin\SWX.pdb
 D:\CSharp\ASP.NET微信开发源码\SWX\obj\Debug\SWX.csprojResolveAssemblyReference.cache
 D:\CSharp\ASP.NET微信开发源码\SWX\obj\Debug\SWX.dll
 D:\CSharp\ASP.NET微信开发源码\SWX\obj\Debug\SWX.pdb
+C:\Users\LDM\Documents\GitHub\WeChat\SWX\bin\SWX.dll.config
+C:\Users\LDM\Documents\GitHub\WeChat\SWX\bin\SWX.dll
+C:\Users\LDM\Documents\GitHub\WeChat\SWX\bin\SWX.pdb
+C:\Users\LDM\Documents\GitHub\WeChat\SWX\obj\Debug\SWX.csprojResolveAssemblyReference.cache
+C:\Users\LDM\Documents\GitHub\WeChat\SWX\obj\Debug\SWX.dll
+C:\Users\LDM\Documents\GitHub\WeChat\SWX\obj\Debug\SWX.pdb

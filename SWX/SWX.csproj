@@ -396,6 +396,7 @@
     <Content Include="WeixinInterface.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="UploadFile\" />
   </ItemGroup>
   <ItemGroup>
