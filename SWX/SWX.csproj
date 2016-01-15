@@ -74,6 +74,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-MovieSite-20151210085802.mdf" />
+    <Content Include="App_Data\aspnet-MovieSite-20151210085802_log.ldf">
+      <DependentUpon>aspnet-MovieSite-20151210085802.mdf</DependentUpon>
+    </Content>
     <Content Include="caidan.aspx" />
     <Content Include="CryptUtil\Readme.txt" />
     <Content Include="CSS\Ctrl.css" />
@@ -213,9 +217,11 @@
     <Content Include="Register.aspx" />
     <Content Include="test.aspx" />
     <Content Include="test2.aspx" />
+    <Content Include="Test3.aspx" />
     <Content Include="TextMessageList.aspx" />
     <Content Include="TextMessageList2.aspx" />
     <Content Include="UserManager.aspx" />
+    <Content Include="WeatherTest.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -357,6 +363,13 @@
     <Compile Include="test2.aspx.designer.cs">
       <DependentUpon>test2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Test3.aspx.cs">
+      <DependentUpon>Test3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test3.aspx.designer.cs">
+      <DependentUpon>Test3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TextMessageList.aspx.cs">
       <DependentUpon>TextMessageList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -387,9 +400,17 @@
     <Compile Include="Utils\HttpRequestUtil.cs" />
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Tools.cs" />
+    <Compile Include="Utils\Weather.cs" />
     <Compile Include="Utils\WeatherUtil.cs" />
     <Compile Include="Utils\WXApi.cs" />
     <Compile Include="Utils\WXMsgUtil.cs" />
+    <Compile Include="WeatherTest.aspx.cs">
+      <DependentUpon>WeatherTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WeatherTest.aspx.designer.cs">
+      <DependentUpon>WeatherTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WeChat.ashx.cs">
       <DependentUpon>WeChat.ashx</DependentUpon>
     </Compile>
@@ -401,7 +422,6 @@
     <Content Include="WeixinInterface.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="UploadFile\" />
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SWX.Utils;
 
 namespace SWX
 {
@@ -15,6 +16,11 @@ namespace SWX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Log.WriteLog(Weather.GetWeather());
+            //Log.WriteLog(Weather.GetWeather("101010100|101180701", "forecast_f"));
+            //Log.WriteLog(Weather.GetWeather("101180701", "forecast_f"));
+            //Log.WriteLog(Weather.GetWeather("101180701|101010200", "index_f"));
+            
             string action = Request["action"];
             string json = string.Empty;
             try

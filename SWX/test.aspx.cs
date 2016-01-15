@@ -15,6 +15,7 @@ namespace SWX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             string result = "";
             //string result = WXApi.GetToken("wx78029370fbbd5443", "e89ad54702a996fd490ef7b1959b0162");
             //Response.Write(result);
@@ -60,7 +61,6 @@ namespace SWX
             //Response.Write(id);
 
             Response.Write(WXMsgUtil.CreateTextJson("abc", WXApi.GetOpenIDs(AdminUtil.GetAccessToken(this))));
-
         }
     }
 }
