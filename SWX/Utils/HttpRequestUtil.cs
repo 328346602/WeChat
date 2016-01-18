@@ -28,8 +28,13 @@ namespace SWX.Utils
         /// </summary>
         public static string RequestUrl(string url, string method)
         {
+
             // 设置参数
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+
+            request.Timeout = 6000000;//尝试避免超时错误
+            request.KeepAlive = false;//避免过多的请求出现
+
             CookieContainer cookieContainer = new CookieContainer();
             request.CookieContainer = cookieContainer;
             request.AllowAutoRedirect = true;
@@ -39,11 +44,19 @@ namespace SWX.Utils
 
             //发送请求并获取相应回应数据
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+           
             //直到request.GetResponse()程序才开始向目标网页发送Post请求
             Stream responseStream = response.GetResponseStream();
             StreamReader sr = new StreamReader(responseStream, Encoding.UTF8);
             //返回结果网页（html）代码
+
+            
+
             string content = sr.ReadToEnd();
+            sr.Close();
+            responseStream.Close();
+            response.Close();
+            
             return content;
         }
         #endregion

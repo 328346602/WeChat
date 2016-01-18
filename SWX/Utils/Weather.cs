@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Security.Cryptography;
+using System.Text;
+using System.Runtime.Serialization.Json;
+
 
 namespace SWX.Utils
 {
@@ -36,17 +39,19 @@ namespace SWX.Utils
                 Weather.type = type;
                 Weather.publicKey = string.Format("{0}?areaid={1}&type={2}&date={3}&appid={4}", url, areaID, type, date, appID);
                 string uri = string.Format("http://open.weather.com.cn/data/?areaid={0}&type={1}&date={2}&appid={3}&key={4}", areaID, type, date, appID_Six, GetKey());
-                //Log.WriteDebug(uri);
-                //uri = WeatherUtil.zhToUncode(uri);
-                string cityJson = HttpRequestUtil.RequestUrl(uri, "GET");
                 Log.WriteDebug(uri);
+                //uri = WeatherUtil.zhToUncode(uri);
+                System.GC.Collect();
+                string cityJson = HttpRequestUtil.RequestUrl(uri, "GET");
+                //Log.WriteDebug(uri);
                 Log.WriteDebug(cityJson);
                 //cityJson = WeatherUtil.uncodeToZH(cityJson);
                 return cityJson;
             }
             catch (Exception ex)
             {
-                Log.WriteError("GetWeather错误：" + ex.Message);
+                Log.WriteError("GetWeather错误>>>>>" + areaID + ">>>>>" + ex.Message);
+                return "GetWeather错误>>>>>" + areaID + ">>>>>" + ex.Message;
                 throw ex;
             }
 
@@ -66,6 +71,45 @@ namespace SWX.Utils
             var signedData = hmac.ComputeHash(data);
             return Convert.ToBase64String(signedData);
 
+        }
+
+
+        private static string GetWeatherValue(string json,string type)
+        {
+            try
+            {
+                StringBuilder sbValue = new StringBuilder();
+                #region 解析指数数据
+                if (type.Substring(0, 5) == "index")
+                {
+                    //value = string.Format("{0}:{1}\n{2}:{3}\n{4}:{5}\n{6}:{7}\n",Tools.GetJsonValue(););
+                    JsonHepler.JsonSerializerBySingleData(json);
+                    
+                    
+                }
+                #endregion
+
+
+                #region 解析预报数据
+                else if (type.Substring(0, 7) == "forcast")
+                {
+                    sbValue.Append(Tools.GetJsonValue(json, "c5"));
+                    sbValue.Append(" ");
+                    sbValue.Append(Tools.GetJsonValue(json, "c9") + "\n");
+
+                    sbValue.Append(Tools.GetJsonValue(json, "c5"));
+                    sbValue.Append(" ");
+                    sbValue.Append(Tools.GetJsonValue(json, "c9") + "\n");
+                }
+                #endregion
+                
+                return json;
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError("GetWeatherValue()错误>>>>>" + ex.Message);
+                throw ex;
+            }
         }
 
     }

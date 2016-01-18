@@ -53,6 +53,7 @@
     <Reference Include="Newtonsoft.Json.Net35">
       <HintPath>..\..\..\..\digitschool\trunk\03_Code\Lib\Newtonsoft.Json.Net35.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -398,6 +399,7 @@
     <Compile Include="Utils\FileLogger.cs" />
     <Compile Include="CryptUtil\WXBizMsgCrypt.cs" />
     <Compile Include="Utils\HttpRequestUtil.cs" />
+    <Compile Include="Utils\JsonHepler.cs" />
     <Compile Include="Utils\Log.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="Utils\Weather.cs" />
