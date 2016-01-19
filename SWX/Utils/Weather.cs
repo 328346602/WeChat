@@ -5,7 +5,7 @@ using System.Web;
 using System.Security.Cryptography;
 using System.Text;
 using System.Runtime.Serialization.Json;
-
+using System.Xml;
 
 namespace SWX.Utils
 {
@@ -21,6 +21,47 @@ namespace SWX.Utils
         private static string appID_Six = appID.Substring(0, 6);
 
         private static string publicKey = string.Format("{0}?areaid={1}&type={2}&date={3}&appid={4}", url, areaID, type, date, appID);//public_key为不包含key在内的完整URL其它部分（此处appid为完整appid）
+        
+        StringBuilder sbWeather = new StringBuilder();
+
+        public Weather()
+        {
+            
+        }
+
+        public Weather(string Json)
+        {
+            XmlDictionaryReader reader = JsonReaderWriterFactory.CreateJsonReader(Encoding.UTF8.GetBytes(Json), XmlDictionaryReaderQuotas.Max);
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(reader);
+            
+            //for (int i = 0; i < xdoc.ChildNodes.Count; i++)
+            {
+                //Response.Write(xdoc.ChildNodes[i].Name+xdoc[xdoc.ChildNodes[i].Name].Value);
+                //for (int j = 0; j < xdoc.ChildNodes[i].ChildNodes.Count; j++)
+                {
+                    int j = 0;
+                    sbWeather.Append(string.Format("区域ID：{0}\n城市英文名:{1}\n城市中文名:{2}\n城市所在市英文名:{3}\n城市所在市中文名:{4}\n城市所在省英文名:{5}\n城市所在省中文名:{6}\n城市所在国家英文名:{7}\n城市所在国家中文名:{8}\n城市级别:{9}\n城市区号:{11}\n邮编:{11}\n经度:{12}\n纬度:{13}\n海拔:{14}\n雷达站号:{15}", xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText, xdoc.ChildNodes[0].ChildNodes[0].ChildNodes[j++].InnerText));
+                    
+                    
+                    //for (int n = 0; n < xdoc.ChildNodes[i].ChildNodes[j].ChildNodes.Count; n++)
+                    //{
+                    //try
+                    //{
+                    //    sbWeather.Append(xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[j].InnerText + "\n>>>>>\n" + xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[j + 1].InnerText);
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    throw ex;
+                    //    Log.WriteError(ex.Message);
+                    //}
+                    //}
+
+                    int i = 0;
+                    sbWeather.Append(string.Format(",预报发布时间\r\n 预报发布时间：{0}\r\n 白天天气现象编号：{1}\r\n 晚上天气现象编号：{2}\r\n 白天天气温度(摄氏度)：{3}\r\n 晚上天气温度(摄氏度)：{4}\r\n 白天风向编号：{5}\r\n 晚上风向编号：{6}\r\n 白天风力编号：{7}\r\n 晚上风力编号：{8}\r\n 日出日落时间(中间用|分割)：{9}", xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value,xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[0].ChildNodes[i++].Value));
+                }
+            }
+        }
 
 
         public static string GetWeather()
@@ -112,5 +153,9 @@ namespace SWX.Utils
             }
         }
 
+        public string ToString()
+        {
+            return sbWeather.ToString();
+        }
     }
 }
