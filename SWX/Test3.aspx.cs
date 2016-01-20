@@ -20,10 +20,11 @@ namespace SWX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string json = Weather.GetWeather("101180701", "forecast_f");
-            //Log.WriteLog(Weather.GetWeather("101010100|101180701", "forecast_f"));
-            //Response.Write(json);
-            Response.Write(new Weather(json).ToString());
+            string json = WeatherInfo.GetWeather(WeatherInfo.GetWeatherF("wuhan"), "forecast_f");
+            Response.Write(json);
+            //WeatherInfo wi = new WeatherInfo(json);
+            //Response.Write(string.Format("{0}市天气情况如下：[{1}]日出，白天[{2}],[{3}]摄氏度，[{4}]风[{5}]级；[{6}]日落，晚上[{7}],[{8}]摄氏度，[{9}]风[{10}]级。--发布时间[{11}]",wi.CNCityName,wi.SunriseTimeOne,wi.DayWeatherCodeOne,wi.DayTemperatureOne,
+            //    wi.DayWindDirectionOne,wi.DayWindForceOne,wi.SunsetTimeOne,wi.NightWeatherCodeOne,wi.NightTemperatureOne,wi.NightWindDirectionOne,wi.NightWindForceOne,wi.PublishTime.ToShortDateString()));
             #region 测试网上的反序列化方法
             //Weather weather = new Weather();
             //json = Weather.GetWeather("101180701", "forecast_f");
@@ -48,11 +49,6 @@ namespace SWX
             #endregion
 
             //Response.Write(JsonHepler.JsonSerializerBySingleData(Weather.GetWeather("101090211", "forecast_v")));
-            //Response.Write(Weather.GetWeather("101090211", "forecast_v"));
-            
-            //Response.Write(Weather.GetWeather("101120701", "forecast_v"));
-            //Response.Write(Weather.GetWeather("101160305", "forecast_v"));
-            //Response.Write(Weather.GetWeather("101251102", "forecast_v"));
 
             #region 循环获取全部数据
             //StringBuilder sb = new StringBuilder();
@@ -64,7 +60,7 @@ namespace SWX
             //}
             //catch (Exception ex)
             //{
-            //    Log.WriteError("循环获取全国数据错误>>>>>"+ex.Message);
+            //    Log.WriteError("循环获取全国数据错误>>>>>" + ex.Message);
             //    throw ex;
             //}
             //if (dt != null && dt.Rows.Count > 0)
