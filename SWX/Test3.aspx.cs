@@ -20,11 +20,6 @@ namespace SWX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string json = WeatherInfo.GetWeather(WeatherInfo.GetWeatherF("wuhan"), "forecast_f");
-            Response.Write(json);
-            //WeatherInfo wi = new WeatherInfo(json);
-            //Response.Write(string.Format("{0}市天气情况如下：[{1}]日出，白天[{2}],[{3}]摄氏度，[{4}]风[{5}]级；[{6}]日落，晚上[{7}],[{8}]摄氏度，[{9}]风[{10}]级。--发布时间[{11}]",wi.CNCityName,wi.SunriseTimeOne,wi.DayWeatherCodeOne,wi.DayTemperatureOne,
-            //    wi.DayWindDirectionOne,wi.DayWindForceOne,wi.SunsetTimeOne,wi.NightWeatherCodeOne,wi.NightTemperatureOne,wi.NightWindDirectionOne,wi.NightWindForceOne,wi.PublishTime.ToShortDateString()));
             #region 测试网上的反序列化方法
             //Weather weather = new Weather();
             //json = Weather.GetWeather("101180701", "forecast_f");
@@ -76,6 +71,20 @@ namespace SWX
             //}
             #endregion
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string json = WeatherInfo.GetWeatherF(TextBox1.Text);
+            //Response.Write(json);
+            WeatherInfo wi = new WeatherInfo(json,"Forecast");
+            Label1.Text = (string.Format("{0}市今天天气情况如下：{1}日出，白天{2},{3}摄氏度，{4}{5}；{6}日落，晚上{7},{8}摄氏度，{9}{10}。--发布时间[{11}]", wi.CNCityName, wi.SunriseTimeOne, WeatherInfo.GetWeatherCNByCode(wi.DayWeatherCodeOne), wi.DayTemperatureOne,
+                WeatherInfo.GetWindDirectionCNByCode(wi.DayWindDirectionOne), WeatherInfo.GetWindForceCNByCode(wi.DayWindForceOne), wi.SunsetTimeOne, WeatherInfo.GetWeatherCNByCode(wi.NightWeatherCodeOne), wi.NightTemperatureOne, WeatherInfo.GetWindDirectionCNByCode(wi.NightWindDirectionOne), WeatherInfo.GetWindForceCNByCode(wi.NightWindForceOne), wi.PublishTime.ToString("yyyy年MM月dd日-hh:mm:ss")).Replace(" ",""));
+            Label2.Text = (string.Format("{0}市明天天气情况如下：{1}日出，白天{2},{3}摄氏度，{4}{5}；{6}日落，晚上{7},{8}摄氏度，{9}{10}。--发布时间[{11}]", wi.CNCityName, wi.SunriseTimeTwo, WeatherInfo.GetWeatherCNByCode(wi.DayWeatherCodeTwo), wi.DayTemperatureTwo,
+                WeatherInfo.GetWindDirectionCNByCode(wi.DayWindDirectionTwo), WeatherInfo.GetWindForceCNByCode(wi.DayWindForceTwo), wi.SunsetTimeTwo, WeatherInfo.GetWeatherCNByCode(wi.NightWeatherCodeTwo), wi.NightTemperatureTwo, WeatherInfo.GetWindDirectionCNByCode(wi.NightWindDirectionTwo), WeatherInfo.GetWindForceCNByCode(wi.NightWindForceTwo), wi.PublishTime.ToString("yyyy年MM月dd日-hh:mm:ss")).Replace(" ", ""));
+            Label3.Text = (string.Format("{0}市后天天气情况如下：{1}日出，白天{2},{3}摄氏度，{4}{5}；{6}日落，晚上{7},{8}摄氏度，{9}{10}。--发布时间[{11}]", wi.CNCityName, wi.SunriseTimeThree, WeatherInfo.GetWeatherCNByCode(wi.DayWeatherCodeThree), wi.DayTemperatureThree,
+                WeatherInfo.GetWindDirectionCNByCode(wi.DayWindDirectionThree), WeatherInfo.GetWindForceCNByCode(wi.DayWindForceThree), wi.SunsetTimeThree, WeatherInfo.GetWeatherCNByCode(wi.NightWeatherCodeThree), wi.NightTemperatureThree, WeatherInfo.GetWindDirectionCNByCode(wi.NightWindDirectionThree), WeatherInfo.GetWindForceCNByCode(wi.NightWindForceThree), wi.PublishTime.ToString("yyyy年MM月dd日-hh:mm:ss")).Replace(" ", ""));
+            
         }
     }
 }
