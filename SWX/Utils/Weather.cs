@@ -86,17 +86,17 @@ namespace SWX.Utils
         /// </summary>
         /// <param name="areaCode"></param>
         /// <returns></returns>
-        public static WeatherInfo GetWeatherV(string areaCode)
+        public static Forecast GetWeatherV(string areaCode)
         {
             try
             {
                 string SQL = "select AreaID from AreaID_V where AreaID=" + areaCode + " or NameEN=" + areaCode + " or NameCN=" + areaCode;
 
-                return new WeatherInfo( GetWeather(MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString(), "forecast_f"),"forecast");
+                return new Forecast(GetWeather(MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString(), "forecast_f"), "forecast");
             }
             catch (Exception ex)
             {
-                return new WeatherInfo();
+                return new Forecast();
             }
         }
 
@@ -240,14 +240,14 @@ namespace SWX.Utils
         }
     }
 
-    public class WeatherInfo
+    public class Forecast
     {
         #region 基础成员变量
         private static string url = System.Configuration.ConfigurationManager.AppSettings["Url"].ToString();//接口地址
         private static string appID = System.Configuration.ConfigurationManager.AppSettings["AppID"].ToString();//完整的appID
         private static string privateKey = System.Configuration.ConfigurationManager.AppSettings["PrivateKey"].ToString();//私有Key
         private static string areaID = System.Configuration.ConfigurationManager.AppSettings["AreaID"].ToString();//位置ID
-        private static string type = System.Configuration.ConfigurationManager.AppSettings["Type"].ToString();//指数:index_f(基础接口)；index_v(常规接口)； 3天预报:forecast_f(基础接口)；forecast_v(常规接口)；
+        private static string type = System.Configuration.ConfigurationManager.AppSettings["ForecastType"].ToString();//指数:index_f(基础接口)；index_v(常规接口)； 3天预报:forecast_f(基础接口)；forecast_v(常规接口)；
         private static string date = DateTime.Now.ToString("yyyyMMddHHHmm");
         private static string appID_Six = appID.Substring(0, 6);
         private static string publicKey = string.Format("{0}?areaid={1}&type={2}&date={3}&appid={4}", url, areaID, type, date, appID);//public_key为不包含key在内的完整URL其它部分（此处appid为完整appid）
@@ -568,7 +568,7 @@ namespace SWX.Utils
             try
             {
                 privateKey = System.Configuration.ConfigurationManager.AppSettings["PrivateKey"].ToString();//私有Key
-                type = System.Configuration.ConfigurationManager.AppSettings["Type"].ToString();//指数:index_f(基础接口)；index_v(常规接口)； 3天预报:forecast_f(基础接口)；forecast_v(常规接口)；
+                type = System.Configuration.ConfigurationManager.AppSettings["ForecastType"].ToString();//指数:index_f(基础接口)；index_v(常规接口)； 3天预报:forecast_f(基础接口)；forecast_v(常规接口)；
                 date = DateTime.Now.ToString("yyyyMMddHHHmm");
                 publicKey = string.Format("{0}?areaid={1}&type={2}&date={3}&appid={4}", url, areaID, type, date, appID);//public_key为不包含key在内的完整URL其它部分（此处appid为完整appid）
                 uri = string.Format("http://open.weather.com.cn/data/?areaid={0}&type={1}&date={2}&appid={3}&key={4}", areaID, type, date, appID_Six, GetKey(publicKey, privateKey));
@@ -576,124 +576,121 @@ namespace SWX.Utils
             }
             catch (Exception ex)
             {
+                Log.WriteError(ex.Message);
                 return string.Empty;
             }
         }
 
-        public WeatherInfo()
+        public Forecast()
         {
 
         }
-        public WeatherInfo(string json,string type)
+        public Forecast(string json, string type)
         {
-            if (!json.Equals(string.Empty))
+            if (!json.Equals(string.Empty)&&!json.Equals("error data"))
             {
                 XmlDictionaryReader reader = JsonReaderWriterFactory.CreateJsonReader(Encoding.UTF8.GetBytes(json), XmlDictionaryReaderQuotas.Max);
                 XmlDocument xdoc = new XmlDocument();
+                Log.WriteDebug("xdoc" + xdoc.InnerText);
+                Log.WriteDebug("reader" + reader.Value);
                 xdoc.Load(reader);
-                Log.WriteDebug(xdoc.InnerText);
-                if (type.ToLower() == "forecast")
+               
+
+                #region 输出完整的XML，分析格式
+                //StringWriter stringWriter = new StringWriter();
+                //XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
+                //xmlTextWriter.Formatting = Formatting.Indented;
+                //foreach (XmlNode xmlNode in xdoc)
+                //{
+                //    xmlNode.WriteTo(xmlTextWriter);
+                //}
+
+                //Log.WriteLog(stringWriter.ToString());
+                #endregion
+
+                #region 用xml解析json,并为相关的成员变量赋值
+                try
                 {
+                    ///获取到的属性信息
+                    XmlNode info = xdoc.FirstChild.SelectSingleNode("c");
 
-                    #region 输出完整的XML，分析格式
-                    //StringWriter stringWriter = new StringWriter();
-                    //XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
-                    //xmlTextWriter.Formatting = Formatting.Indented;
-                    //foreach (XmlNode xmlNode in xdoc)
-                    //{
-                    //    xmlNode.WriteTo(xmlTextWriter);
-                    //}
+                    AreaID = info.SelectSingleNode("c1").InnerText;
+                    ENName = info.SelectSingleNode("c2").InnerText;
+                    CNName = info.SelectSingleNode("c3").InnerText;
+                    ENCityName = info.SelectSingleNode("c4").InnerText;
+                    CNCityName = info.SelectSingleNode("c5").InnerText;
+                    ENProvName = info.SelectSingleNode("c6").InnerText;
+                    CNProvName = info.SelectSingleNode("c7").InnerText;
+                    ENCountryName = info.SelectSingleNode("c8").InnerText;
+                    CNCountryName = info.SelectSingleNode("c9").InnerText;
+                    CityLevel = uint.Parse(info.SelectSingleNode("c10").InnerText);
+                    CityAreaCode = info.SelectSingleNode("c11").InnerText;
+                    PostCode = uint.Parse(info.SelectSingleNode("c12").InnerText);
+                    Longitude = float.Parse(info.SelectSingleNode("c13").InnerText);
+                    Latitude = float.Parse(info.SelectSingleNode("c14").InnerText);
+                    Altitude = int.Parse(info.SelectSingleNode("c15").InnerText);
+                    RadarStationNo = info.SelectSingleNode("c16").InnerText;
 
-                    //Log.WriteLog(stringWriter.ToString());
-                    #endregion
+                    ///f0 数据发布时间
+                    IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
+                    //Log.WriteDebug(xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[1].ChildNodes[0].InnerText);
+                    PublishTime = System.DateTime.ParseExact(xdoc.FirstChild.SelectSingleNode("f").SelectSingleNode("f0").FirstChild.InnerText, "yyyyMMddHHmm", culture);
 
-                    #region 用xml解析json,并为相关的成员变量赋值
-                    try
-                    {
-                        ///获取到的属性信息
-                        XmlNode info = xdoc.FirstChild.SelectSingleNode("c");
+                    XmlNode DayOne = xdoc.FirstChild.SelectSingleNode("f").SelectSingleNode("f1").FirstChild;
+                    Log.WriteLog(DayOne.InnerText);
+                    DayWeatherCodeOne = DayOne.SelectSingleNode("fa").InnerText;
+                    NightWeatherCodeOne = DayOne.SelectSingleNode("fb").InnerText;
+                    DayTemperatureOne = DayOne.SelectSingleNode("fc").InnerText;
+                    NightTemperatureOne = DayOne.SelectSingleNode("fd").InnerText;
+                    DayWindDirectionOne = DayOne.SelectSingleNode("fe").InnerText;
+                    NightWindDirectionOne = DayOne.SelectSingleNode("ff").InnerText;
+                    DayWindForceOne = DayOne.SelectSingleNode("fg").InnerText;
+                    NightWindForceOne = DayOne.SelectSingleNode("fh").InnerText;
+                    SunriseTimeOne = DayOne.SelectSingleNode("fi").InnerText.Split('|')[0];
+                    SunsetTimeOne = DayOne.SelectSingleNode("fi").InnerText.Split('|')[1];
 
-                        AreaID = info.SelectSingleNode("c1").InnerText;
-                        ENName = info.SelectSingleNode("c2").InnerText;
-                        CNName = info.SelectSingleNode("c3").InnerText;
-                        ENCityName = info.SelectSingleNode("c4").InnerText;
-                        CNCityName = info.SelectSingleNode("c5").InnerText;
-                        ENProvName = info.SelectSingleNode("c6").InnerText;
-                        CNProvName = info.SelectSingleNode("c7").InnerText;
-                        ENCountryName = info.SelectSingleNode("c8").InnerText;
-                        CNCountryName = info.SelectSingleNode("c9").InnerText;
-                        CityLevel = uint.Parse(info.SelectSingleNode("c10").InnerText);
-                        CityAreaCode = info.SelectSingleNode("c11").InnerText;
-                        PostCode = uint.Parse(info.SelectSingleNode("c12").InnerText);
-                        Longitude = float.Parse(info.SelectSingleNode("c13").InnerText);
-                        Latitude = float.Parse(info.SelectSingleNode("c14").InnerText);
-                        Altitude = int.Parse(info.SelectSingleNode("c15").InnerText);
-                        RadarStationNo = info.SelectSingleNode("c16").InnerText;
-
-                        ///f0 数据发布时间
-                        IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
-                        //Log.WriteDebug(xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[1].ChildNodes[0].InnerText);
-                        PublishTime = System.DateTime.ParseExact(xdoc.FirstChild.SelectSingleNode("f").SelectSingleNode("f0").FirstChild.InnerText, "yyyyMMddHHmm", culture);
-
-                        XmlNode DayOne = xdoc.FirstChild.SelectSingleNode("f").SelectSingleNode("f1").FirstChild;
-                        Log.WriteLog(DayOne.InnerText);
-                        DayWeatherCodeOne = DayOne.SelectSingleNode("fa").InnerText;
-                        NightWeatherCodeOne = DayOne.SelectSingleNode("fb").InnerText;
-                        DayTemperatureOne = DayOne.SelectSingleNode("fc").InnerText;
-                        NightTemperatureOne = DayOne.SelectSingleNode("fd").InnerText;
-                        DayWindDirectionOne = DayOne.SelectSingleNode("fe").InnerText;
-                        NightWindDirectionOne = DayOne.SelectSingleNode("ff").InnerText;
-                        DayWindForceOne = DayOne.SelectSingleNode("fg").InnerText;
-                        NightWindForceOne = DayOne.SelectSingleNode("fh").InnerText;
-                        SunriseTimeOne = DayOne.SelectSingleNode("fi").InnerText.Split('|')[0];
-                        SunsetTimeOne = DayOne.SelectSingleNode("fi").InnerText.Split('|')[1];
-
-                        ///第二天
-                        ///
-                        XmlNode DayTwo = DayOne.NextSibling;
-                        Log.WriteLog("DayTwo>>>>>" + DayTwo.InnerText);
-                        DayWeatherCodeTwo = DayTwo.SelectSingleNode("fa").InnerText;
-                        NightWeatherCodeTwo = DayTwo.SelectSingleNode("fb").InnerText;
-                        DayTemperatureTwo = DayTwo.SelectSingleNode("fc").InnerText;
-                        NightTemperatureTwo = DayTwo.SelectSingleNode("fd").InnerText;
-                        DayWindDirectionTwo = DayTwo.SelectSingleNode("fe").InnerText;
-                        NightWindDirectionTwo = DayTwo.SelectSingleNode("ff").InnerText;
-                        DayWindForceTwo = DayTwo.SelectSingleNode("fg").InnerText;
-                        NightWindForceTwo = DayTwo.SelectSingleNode("fh").InnerText;
-                        SunriseTimeTwo = DayTwo.SelectSingleNode("fi").InnerText.Split('|')[0];
-                        SunsetTimeTwo = DayTwo.SelectSingleNode("fi").InnerText.Split('|')[1];
-                        ///第三天
+                    ///第二天
+                    ///
+                    XmlNode DayTwo = DayOne.NextSibling;
+                    Log.WriteLog("DayTwo>>>>>" + DayTwo.InnerText);
+                    DayWeatherCodeTwo = DayTwo.SelectSingleNode("fa").InnerText;
+                    NightWeatherCodeTwo = DayTwo.SelectSingleNode("fb").InnerText;
+                    DayTemperatureTwo = DayTwo.SelectSingleNode("fc").InnerText;
+                    NightTemperatureTwo = DayTwo.SelectSingleNode("fd").InnerText;
+                    DayWindDirectionTwo = DayTwo.SelectSingleNode("fe").InnerText;
+                    NightWindDirectionTwo = DayTwo.SelectSingleNode("ff").InnerText;
+                    DayWindForceTwo = DayTwo.SelectSingleNode("fg").InnerText;
+                    NightWindForceTwo = DayTwo.SelectSingleNode("fh").InnerText;
+                    SunriseTimeTwo = DayTwo.SelectSingleNode("fi").InnerText.Split('|')[0];
+                    SunsetTimeTwo = DayTwo.SelectSingleNode("fi").InnerText.Split('|')[1];
+                    ///第三天
 
 
-                        XmlNode DayThree = DayTwo.NextSibling;
-                        Log.WriteLog("DayThree>>>>>" + DayThree.InnerText);
-                        DayWeatherCodeThree = DayThree.SelectSingleNode("fa").InnerText;
-                        NightWeatherCodeThree = DayThree.SelectSingleNode("fb").InnerText;
-                        DayTemperatureThree = DayThree.SelectSingleNode("fc").InnerText;
-                        NightTemperatureThree = DayThree.SelectSingleNode("fd").InnerText;
-                        DayWindDirectionThree = DayThree.SelectSingleNode("fe").InnerText;
-                        NightWindDirectionThree = DayThree.SelectSingleNode("ff").InnerText;
-                        DayWindForceThree = DayThree.SelectSingleNode("fg").InnerText;
-                        NightWindForceThree = DayThree.SelectSingleNode("fh").InnerText;
-                        SunriseTimeThree = DayThree.SelectSingleNode("fi").InnerText.Split('|')[0];
-                        SunsetTimeThree = DayThree.SelectSingleNode("fi").InnerText.Split('|')[1];
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.WriteError("解析Json错误>>>>>" + ex.Message);
-                    }
-                    #endregion
-                }
-                else if (type.ToLower() == "index")
-                {
+                    XmlNode DayThree = DayTwo.NextSibling;
+                    Log.WriteLog("DayThree>>>>>" + DayThree.InnerText);
+                    DayWeatherCodeThree = DayThree.SelectSingleNode("fa").InnerText;
+                    NightWeatherCodeThree = DayThree.SelectSingleNode("fb").InnerText;
+                    DayTemperatureThree = DayThree.SelectSingleNode("fc").InnerText;
+                    NightTemperatureThree = DayThree.SelectSingleNode("fd").InnerText;
+                    DayWindDirectionThree = DayThree.SelectSingleNode("fe").InnerText;
+                    NightWindDirectionThree = DayThree.SelectSingleNode("ff").InnerText;
+                    DayWindForceThree = DayThree.SelectSingleNode("fg").InnerText;
+                    NightWindForceThree = DayThree.SelectSingleNode("fh").InnerText;
+                    SunriseTimeThree = DayThree.SelectSingleNode("fi").InnerText.Split('|')[0];
+                    SunsetTimeThree = DayThree.SelectSingleNode("fi").InnerText.Split('|')[1];
 
                 }
+                catch (Exception ex)
+                {
+                    Log.WriteError("解析Json错误>>>>>" + ex.Message);
+                }
+                #endregion
+
             }
         }
         
 
-        public static string GetWeather(string areaID = "101010100", string type = "index_f")
+        public static string GetWeather(string areaID = "101010100", string type = "forecast_v")
         {
             try
             {
@@ -874,6 +871,391 @@ namespace SWX.Utils
                 
                 Log.WriteDebug("SQL>>>>>"+SQL);
                 return GetWeather(MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString(), "forecast_f");
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+    }
+
+    public class Index
+    {
+        #region 基础成员变量
+        private static string url = System.Configuration.ConfigurationManager.AppSettings["Url"].ToString();//接口地址
+        private static string appID = System.Configuration.ConfigurationManager.AppSettings["AppID"].ToString();//完整的appID
+        private static string privateKey = System.Configuration.ConfigurationManager.AppSettings["PrivateKey"].ToString();//私有Key
+        private static string areaID = System.Configuration.ConfigurationManager.AppSettings["AreaID"].ToString();//位置ID
+        private static string type = System.Configuration.ConfigurationManager.AppSettings["IndexType"].ToString();//指数:index_f(基础接口)；index_v(常规接口)； 3天预报:forecast_f(基础接口)；forecast_v(常规接口)；
+        private static string date = DateTime.Now.ToString("yyyyMMddHHHmm");
+        private static string appID_Six = appID.Substring(0, 6);
+        private static string publicKey = string.Format("{0}?areaid={1}&type={2}&date={3}&appid={4}", url, areaID, type, date, appID);//public_key为不包含key在内的完整URL其它部分（此处appid为完整appid）
+        private static string uri = string.Format("http://open.weather.com.cn/data/?areaid={0}&type={1}&date={2}&appid={3}&key={4}", areaID, type, date, appID_Six, GetKey(publicKey, privateKey));
+        #endregion
+
+        #region 指数
+        /// <summary>
+        /// i1
+        /// 晨练指数
+        /// </summary>
+        public string cl { get; set; }
+
+        /// <summary>
+        /// i2
+        /// 晨练中文名称
+        /// </summary>
+        public string clCN { get; set; }
+
+        /// <summary>
+        /// i3
+        /// 晨练别名
+        /// </summary>
+        public string clCNAlias { get; set; }
+
+        /// <summary>
+        /// i4
+        /// 晨练级别
+        /// </summary>
+        public string clLevel { get; set; }
+
+        /// <summary>
+        /// i5
+        /// 晨练详情
+        /// </summary>
+        public string clDetails { get; set; }
+
+        /// <summary>
+        /// i1
+        /// 舒适度指数
+        /// </summary>
+        public string co { get; set; }
+
+        /// <summary>
+        /// i2
+        /// 舒适度中文名称
+        /// </summary>
+        public string coCN { get; set; }
+
+        /// <summary>
+        /// i3
+        /// 舒适度别名
+        /// </summary>
+        public string coCNAlias { get; set; }
+
+        /// <summary>
+        /// i4
+        /// 舒适度级别
+        /// </summary>
+        public string coLevel { get; set; }
+
+        /// <summary>
+        /// i5
+        /// 舒适度详情
+        /// </summary>
+        public string coDetails { get; set; }
+
+        /// <summary>
+        /// i1
+        /// 穿衣指数
+        /// </summary>
+        public string ct { get; set; }
+
+        /// <summary>
+        /// i2
+        /// 穿衣指数中文名称
+        /// </summary>
+        public string ctCN { get; set; }
+
+        /// <summary>
+        /// i3
+        /// 穿衣指数别名
+        /// </summary>
+        public string ctCNAlias { get; set; }
+
+        /// <summary>
+        /// i4
+        /// 穿衣指数级别
+        /// </summary>
+        public string ctLevel { get; set; }
+
+        /// <summary>
+        /// i5
+        /// 穿衣指数详情
+        /// </summary>
+        public string ctDetails { get; set; }
+        #endregion
+
+        public static string SetUri(string areaID = "101010100", string type = "index_v")
+        {
+            try
+            {
+                privateKey = System.Configuration.ConfigurationManager.AppSettings["PrivateKey"].ToString();//私有Key
+                type = System.Configuration.ConfigurationManager.AppSettings["IndexType"].ToString();//指数:index_f(基础接口)；index_v(常规接口)； 3天预报:forecast_f(基础接口)；forecast_v(常规接口)；
+                date = DateTime.Now.ToString("yyyyMMddHHHmm");
+                publicKey = string.Format("{0}?areaid={1}&type={2}&date={3}&appid={4}", url, areaID, type, date, appID);//public_key为不包含key在内的完整URL其它部分（此处appid为完整appid）
+                uri = string.Format("http://open.weather.com.cn/data/?areaid={0}&type={1}&date={2}&appid={3}&key={4}", areaID, type, date, appID_Six, GetKey(publicKey, privateKey));
+                return uri;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+
+        public Index()
+        {
+
+        }
+        public Index(string json)
+        {
+            if (!json.Equals(string.Empty))
+            {
+                XmlDictionaryReader reader = JsonReaderWriterFactory.CreateJsonReader(Encoding.UTF8.GetBytes(json), XmlDictionaryReaderQuotas.Max);
+                XmlDocument xdoc = new XmlDocument();
+                xdoc.Load(reader);
+                Log.WriteDebug(xdoc.InnerText);
+
+                #region 输出完整的XML，分析格式
+                //StringWriter stringWriter = new StringWriter();
+                //XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
+                //xmlTextWriter.Formatting = Formatting.Indented;
+                //foreach (XmlNode xmlNode in xdoc)
+                //{
+                //    xmlNode.WriteTo(xmlTextWriter);
+                //}
+
+                //Log.WriteLog(stringWriter.ToString());
+                #endregion
+
+                #region 用xml解析json,并为相关的成员变量赋值
+                try
+                {
+                    ///获取到的属性信息
+                    XmlNode clIndex = xdoc.FirstChild.SelectSingleNode("i").FirstChild;
+
+                    cl = clIndex.SelectSingleNode("i1").InnerText;
+                    clCN = clIndex.SelectSingleNode("i2").InnerText;
+                    clCNAlias = clIndex.SelectSingleNode("i3").InnerText;
+                    clLevel = clIndex.SelectSingleNode("i4").InnerText;
+                    clDetails = clIndex.SelectSingleNode("i5").InnerText;
+
+                    XmlNode coIndex = clIndex.NextSibling;
+                    co = coIndex.SelectSingleNode("i1").InnerText;
+                    coCN = coIndex.SelectSingleNode("i2").InnerText;
+                    coCNAlias = coIndex.SelectSingleNode("i3").InnerText;
+                    coLevel = coIndex.SelectSingleNode("i4").InnerText;
+                    coDetails = coIndex.SelectSingleNode("i5").InnerText;
+
+
+                    XmlNode ctIndex = coIndex.NextSibling;
+                    ct = ctIndex.SelectSingleNode("i1").InnerText;
+                    ctCN = ctIndex.SelectSingleNode("i2").InnerText;
+                    ctCNAlias = ctIndex.SelectSingleNode("i3").InnerText;
+                    ctLevel = ctIndex.SelectSingleNode("i4").InnerText;
+                    ctDetails = ctIndex.SelectSingleNode("i5").InnerText;
+
+                    
+
+                    ///f0 数据发布时间
+                    IFormatProvider culture = new System.Globalization.CultureInfo("fr-FR", true);
+                    //Log.WriteDebug(xdoc.ChildNodes[0].ChildNodes[1].ChildNodes[1].ChildNodes[0].InnerText);
+                    //PublishTime = System.DateTime.ParseExact(xdoc.FirstChild.SelectSingleNode("f").SelectSingleNode("f0").FirstChild.InnerText, "yyyyMMddHHmm", culture);
+
+                    XmlNode DayOne = xdoc.FirstChild.SelectSingleNode("f").SelectSingleNode("f1").FirstChild;
+                    Log.WriteLog(DayOne.InnerText);
+
+                }
+                catch (Exception ex)
+                {
+                    Log.WriteError("解析Json错误>>>>>" + ex.Message);
+                }
+                #endregion
+
+            }
+        }
+
+
+        public static string GetIndex(string areaID = "101010100", string type = "index_f")
+        {
+            try
+            {
+                uri = SetUri(areaID, type);
+                string cityJson = HttpRequestUtil.RequestUrl(uri, "GET");
+                Log.WriteDebug(uri);
+                Log.WriteDebug(cityJson);
+                //cityJson = WeatherUtil.uncodeToZH(cityJson);
+                System.GC.Collect();
+                return cityJson;
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError("GetWeather错误>>>>>" + areaID + ">>>>>" + ex.Message);
+                return "GetWeather错误>>>>>" + areaID + ">>>>>" + ex.Message;
+                throw ex;
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="publicKey"></param>
+        /// <param name="privateKey"></param>
+        /// <returns></returns>
+        private static string GetKey(string publicKey, string privateKey)
+        {
+            //使用SHA1的HMAC
+
+            HMAC hmac = HMACSHA1.Create();
+            var data = System.Text.Encoding.UTF8.GetBytes(publicKey);
+            //密钥
+            var key = System.Text.Encoding.UTF8.GetBytes(privateKey);
+            hmac.Key = key;
+
+            //对数据进行签名
+            var signedData = hmac.ComputeHash(data);
+            return Convert.ToBase64String(signedData);
+
+        }
+
+        private static string GetWeatherValue(string json, string type)
+        {
+            try
+            {
+                StringBuilder sbValue = new StringBuilder();
+                #region 解析指数数据
+                if (type.Substring(0, 5) == "index")
+                {
+                    //value = string.Format("{0}:{1}\n{2}:{3}\n{4}:{5}\n{6}:{7}\n",Tools.GetJsonValue(););
+                    JsonHepler.JsonSerializerBySingleData(json);
+
+
+                }
+                #endregion
+
+
+                #region 解析预报数据
+                else if (type.Substring(0, 7) == "forcast")
+                {
+                    sbValue.Append(Tools.GetJsonValue(json, "c5"));
+                    sbValue.Append(" ");
+                    sbValue.Append(Tools.GetJsonValue(json, "c9") + "\n");
+
+                    sbValue.Append(Tools.GetJsonValue(json, "c5"));
+                    sbValue.Append(" ");
+                    sbValue.Append(Tools.GetJsonValue(json, "c9") + "\n");
+                }
+                #endregion
+
+                return json;
+            }
+            catch (Exception ex)
+            {
+                Log.WriteError("GetWeatherValue()错误>>>>>" + ex.Message);
+                throw ex;
+            }
+        }
+
+        public static string GetWeatherCNByCode(string code)
+        {
+            string SQL = "select CN from WeatherCode where code=" + code;
+            try
+            {
+
+                return MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                return code;
+            }
+        }
+
+        public static string GetWeatherENByCode(string code)
+        {
+            string SQL = "select EN from WeatherCode where code=" + code;
+            try
+            {
+
+                return MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                return code;
+            }
+        }
+
+        public static string GetWindDirectionCNByCode(string code)
+        {
+            string SQL = "select CN from WindDirectionCode where code=" + code;
+            try
+            {
+
+                return MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                return code;
+            }
+        }
+
+        public static string GetWindDirectionENByCode(string code)
+        {
+            string SQL = "select EN from WindDirectionCode where code=" + code;
+            try
+            {
+
+                return MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                return code;
+            }
+        }
+
+        public static string GetWindForceCNByCode(string code)
+        {
+            string SQL = "select CN from WindForceCode where code=" + code;
+            try
+            {
+
+                return MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                return code;
+            }
+        }
+
+        public static string GetWindForceENByCode(string code)
+        {
+            string SQL = "select EN from WindForceCode where code=" + code;
+            try
+            {
+
+                return MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                return code;
+            }
+        }
+
+        public static string GetIndexV(string areaCode)
+        {
+            try
+            {
+                string SQL;
+                try
+                {
+                    SQL = "select AreaID from AreaID_F where AreaID=" + int.Parse(areaCode) + " or NameEN='" + areaCode + "' or NameCN='" + areaCode + "'";
+                }
+                catch (Exception ex)
+                {
+                    SQL = "select AreaID from AreaID_F where NameEN='" + areaCode.ToLower() + "' or NameCN=N'" + areaCode + "'";
+                }
+
+                Log.WriteDebug("SQL>>>>>" + SQL);
+                return GetIndex(MSSQLHelper.Query(SQL).Tables[0].Rows[0][0].ToString(), "index_v");
             }
             catch (Exception ex)
             {
