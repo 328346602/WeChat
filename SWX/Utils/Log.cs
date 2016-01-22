@@ -31,7 +31,17 @@ namespace SWX.Utils
         /// <param name="sMsg"></param>
         public static void WriteDebug(string sMsg)
         {
-            Write("Debug", sMsg);
+            try
+            {
+                if (System.Configuration.ConfigurationManager.AppSettings["Debug"].ToString().ToLower() == "true")
+                {
+                    Write("Debug", sMsg);
+                }
+            }
+            catch
+            {
+                //未取到Debug的值，不处理
+            }
         }
 
         /// <summary>

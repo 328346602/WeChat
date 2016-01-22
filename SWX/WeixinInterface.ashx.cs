@@ -142,7 +142,7 @@ namespace SWX
             var nonce = context.Request["nonce"].ToString();
             var token = sToken;//"weixin";
             string[] ArrTmp = { token, timestamp, nonce };
-            Array.Sort(ArrTmp);     //字典排序
+            Array.Sort(ArrTmp);//字典排序
             string tmpStr = string.Join("", ArrTmp);
             tmpStr = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(tmpStr, "SHA1");
             tmpStr = tmpStr.ToLower();
@@ -207,7 +207,7 @@ namespace SWX
                     //}
                     //else
                     {
-                        result = WXMsgUtil.CreateNewsMsg(xmlDoc, WeatherUtil.GetWeatherInfo(text));
+                        result = WXMsgUtil.CreateNewsMsg(xmlDoc, Weather.GetForecastInfo(text));
                         //result = WXMsgUtil.CreateTextMsg(xmlDoc, WXMsgUtil.GetTulingMsg(text));
                     }
                     break;
