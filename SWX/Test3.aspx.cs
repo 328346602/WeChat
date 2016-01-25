@@ -85,15 +85,15 @@ namespace SWX
             {
                 Response.Write(string.Format("{0}市今天天气情况如下：{1}日出，白天{2},{3}摄氏度，{4}{5}；<br/>{6}日落，晚上{7},{8}摄氏度，{9}{10}。--发布时间[{11}]{12}", wi.CNCityName, wi.SunriseTimeOne, WeatherForecast.GetWeatherCNByCode(wi.DayWeatherCodeOne), wi.DayTemperatureOne,
                     WeatherForecast.GetWindDirectionCNByCode(wi.DayWindDirectionOne), WeatherForecast.GetWindForceCNByCode(wi.DayWindForceOne), wi.SunsetTimeOne, WeatherForecast.GetWeatherCNByCode(wi.NightWeatherCodeOne), wi.NightTemperatureOne, WeatherForecast.GetWindDirectionCNByCode(wi.NightWindDirectionOne), WeatherForecast.GetWindForceCNByCode(wi.NightWindForceOne), wi.PublishTime.ToString("yyyy年MM月dd日-HH:mm:ss"), "<br/>").Replace(" ", ""));
-                Response.Write(string.Format("<img src=\"{0}\")<img/><br/>", Weather.GetForecastPic( wi.DayWeatherCodeOne)));
+                Response.Write(string.Format("<img src=\"{0}\")<img/><br/>", Weather.GetForecastPic(wi.DayWeatherCodeOne)));
                 
                 Response.Write(string.Format("{0}市明天天气情况如下：{1}日出，白天{2},{3}摄氏度，{4}{5}；<br/>{6}日落，晚上{7},{8}摄氏度，{9}{10}。--发布时间[{11}]{12}", wi.CNCityName, wi.SunriseTimeTwo, WeatherForecast.GetWeatherCNByCode(wi.DayWeatherCodeTwo), wi.DayTemperatureTwo,
                     WeatherForecast.GetWindDirectionCNByCode(wi.DayWindDirectionTwo), WeatherForecast.GetWindForceCNByCode(wi.DayWindForceTwo), wi.SunsetTimeTwo, WeatherForecast.GetWeatherCNByCode(wi.NightWeatherCodeTwo), wi.NightTemperatureTwo, WeatherForecast.GetWindDirectionCNByCode(wi.NightWindDirectionTwo), WeatherForecast.GetWindForceCNByCode(wi.NightWindForceTwo), wi.PublishTime.ToString("yyyy年MM月dd日-HH:mm:ss"), "<br/>").Replace(" ", ""));
-                Response.Write(string.Format("<img src=\"{0}\")<img/><br/>", Weather.GetForecastPic(wi.DayWeatherCodeOne)));
+                Response.Write(string.Format("<img src=\"{0}\")<img/><br/>", Weather.GetForecastPic(wi.DayWeatherCodeTwo)));
                 
                 Response.Write(string.Format("{0}市后天天气情况如下：{1}日出，白天{2},{3}摄氏度，{4}{5}；<br/>{6}日落，晚上{7},{8}摄氏度，{9}{10}。--发布时间[{11}]{12}", wi.CNCityName, wi.SunriseTimeThree, WeatherForecast.GetWeatherCNByCode(wi.DayWeatherCodeThree), wi.DayTemperatureThree,
                     WeatherForecast.GetWindDirectionCNByCode(wi.DayWindDirectionThree), WeatherForecast.GetWindForceCNByCode(wi.DayWindForceThree), wi.SunsetTimeThree, WeatherForecast.GetWeatherCNByCode(wi.NightWeatherCodeThree), wi.NightTemperatureThree, WeatherForecast.GetWindDirectionCNByCode(wi.NightWindDirectionThree), WeatherForecast.GetWindForceCNByCode(wi.NightWindForceThree), wi.PublishTime.ToString("yyyy年MM月dd日-HH:mm:ss"), "<br/>").Replace(" ", ""));
-                Response.Write(string.Format("<img src=\"{0}\")<img/><br/>", Weather.GetForecastPic(wi.DayWeatherCodeOne)));
+                Response.Write(string.Format("<img src=\"{0}\")<img/><br/>", Weather.GetForecastPic(wi.DayWeatherCodeThree)));
                 
             }
             else

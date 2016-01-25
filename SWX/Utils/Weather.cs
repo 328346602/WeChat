@@ -302,14 +302,15 @@ namespace SWX.Utils
                     
                     if(int.Parse(DateTime.Now.ToString("HH")) < 6 || int.Parse(DateTime.Now.ToString("HH")) > 18)
                     {
-                        dict["PicUrl"] = string.Format("Images/Weather/Night/{0}.png", f.DayWeatherCodeOne);
+                        dict["PicUrl"] = string.Format("http://demonlue.wicp.net/111/Images/Weather/Night/{0}.png", f.NightWeatherCodeOne);
                         //Log.WriteLog("晚上");
                     }
                     else //(int.Parse(DateTime.Now.ToString("HH")) > 6 && int.Parse(DateTime.Now.ToString("HH")) < 18)
                     {
-                        dict["PicUrl"] = string.Format("Images/Weather/Day/{0}.png",f.DayWeatherCodeOne);
+                        dict["PicUrl"] = string.Format("http://demonlue.wicp.net/111/Images/Weather/Day/{0}.png", f.DayWeatherCodeOne);
                         //Log.WriteLog("白天");
                     }
+                    Log.WriteLog(dict["PicUrl"]);
                     dict["Url"] = "";
                     result.Add(dict);
                 }

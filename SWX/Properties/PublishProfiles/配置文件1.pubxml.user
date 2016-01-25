@@ -9,6 +9,12 @@
     <_PublishTargetUrl>D:\CSharp\Test</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="App_Data/aspnet-MovieSite-20151210085802.mdf">
+      <publishTime>01/22/2016 23:40:12</publishTime>
+    </File>
+    <File Include="App_Data/aspnet-MovieSite-20151210085802_log.ldf">
+      <publishTime>01/22/2016 23:40:13</publishTime>
+    </File>
     <File Include="bin/AspNetPager.dll">
       <publishTime>01/11/2016 21:39:39</publishTime>
     </File>
@@ -16,7 +22,7 @@
       <publishTime>01/11/2016 21:39:39</publishTime>
     </File>
     <File Include="bin/SWX.dll">
-      <publishTime>01/11/2016 22:01:13</publishTime>
+      <publishTime>01/23/2016 00:20:41</publishTime>
     </File>
     <File Include="bin/WebUse.dll">
       <publishTime>01/11/2016 21:39:39</publishTime>
@@ -438,6 +444,9 @@
     <File Include="test2.aspx">
       <publishTime>01/11/2016 21:39:41</publishTime>
     </File>
+    <File Include="Test3.aspx">
+      <publishTime>01/21/2016 22:18:38</publishTime>
+    </File>
     <File Include="TextMessageList.aspx">
       <publishTime>01/11/2016 21:39:39</publishTime>
     </File>
@@ -450,8 +459,11 @@
     <File Include="UserManager.aspx">
       <publishTime>01/11/2016 21:39:39</publishTime>
     </File>
+    <File Include="WeatherTest.aspx">
+      <publishTime>01/15/2016 22:42:19</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>01/11/2016 21:51:09</publishTime>
+      <publishTime>01/23/2016 00:13:10</publishTime>
     </File>
     <File Include="WeChat.ashx">
       <publishTime>01/11/2016 21:39:39</publishTime>
